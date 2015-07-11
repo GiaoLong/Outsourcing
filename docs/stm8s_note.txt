@@ -1,0 +1,36 @@
+
+//BAT DAU VOI STM8SF003
+BUOC 1: DOWNLOAD STVD AND STVP: http://www.st.com/web/catalog/tools/FM147/CL1794/SC1808/SS1767/PF210567
+
+BUOC 2: DOWNLOAD THU VIEN: http://www.mediafire.com/download/fnm31ae6wr7zys2/Simple.rar
+
+BUOC 3: DOWNLOAD COSMIC 8K: http://www.mediafire.com/download/8p2wm4wcdrgda5p/CXSTM8_idea_sim_eval.exe
+
+BUOC 4: TAO PROJECT MOI VOI STM8S003F
+TRONG HAM main.c copy doan code sau de kich hoat thach anh noi (internal oscilator)
+#include "stm8s.h"
+#include "stdio.h"
+#ifdef USE_FULL_ASSERT
+void assert_failed(u8* file, u32 line)
+{ 
+		while (1)
+		{
+		}
+}
+#endif
+void delay(unsigned long t){
+		while(t>0)t--;
+}
+void main(void)
+{
+		CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+		GPIO_DeInit(GPIOB);  		
+		GPIO_Init(GPIOD,GPIO_PIN_6,GPIO_MODE_OUT_PP_LOW_FAST);
+		while(1)
+		{
+				GPIO_WriteHigh(GPIOD,GPIO_PIN_6);
+				delay(500000);
+				GPIO_WriteLow(GPIOD,GPIO_PIN_6);
+				delay(500000);
+		}
+}
