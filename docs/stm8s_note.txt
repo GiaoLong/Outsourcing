@@ -25,12 +25,12 @@ void main(void)
 {
 		CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
 		GPIO_DeInit(GPIOB);  		
-		GPIO_Init(GPIOD,GPIO_PIN_6,GPIO_MODE_OUT_PP_LOW_FAST);
+		GPIO_Init(GPIOB,GPIO_PIN_5,GPIO_MODE_OUT_PP_LOW_FAST);
 		while(1)
 		{
-				GPIO_WriteHigh(GPIOD,GPIO_PIN_6);
+				GPIO_WriteHigh(GPIOB,GPIO_PIN_5);
 				delay(500000);
-				GPIO_WriteLow(GPIOD,GPIO_PIN_6);
+				GPIO_WriteLow(GPIOB,GPIO_PIN_5);
 				delay(500000);
 		}
 }
